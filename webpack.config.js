@@ -4,12 +4,12 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
   mode: 'development',
   entry: {
-    index: './src/index.js',
-    print: './src/print.js',
+    app: './src/index.js',
   },
   devtool: 'inline-source-map',
   devServer: {
     static: './dist',
+    hot: true,
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -20,7 +20,28 @@ module.exports = {
     filename: '[name].bundle.js',
     path: path.resolve(__dirname, 'dist'),
     clean: true,
+    assetModuleFilename: '[name][ext]',
     publicPath: '/',
+  },
+  module: {
+    rules: [
+      {
+        test: /\.(scss|css)$/,
+        use: [
+          'style-loader',
+          'css-loader',
+          'sass-loader',
+        ],
+      },
+      {
+        test: /\.(woff|woff2|eot|ttf|otf)$/i,
+        type: 'asset/resource',
+      },
+      {
+        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        type: 'asset/resource',
+      },
+    ],
   },
   optimization: {
     runtimeChunk: 'single',

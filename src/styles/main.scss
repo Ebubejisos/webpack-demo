@@ -1,0 +1,20 @@
+@font-face {
+  font-family: 'MyFont';
+  src: url('../fonts/Norse-Bold.otf') format('otf'),
+    url('../fonts/Tillana-Regular.ttf') format('ttf');
+  font-weight: 600;
+  font-style: normal;
+}
+
+body{
+  background-color: rgb(240, 128, 178);
+  background-image: url('../images/stones-g6116d4560_1280.jpg');
+  color: rgb(254, 252, 252);
+  button{
+    border-radius: 50px;
+    border: none;
+    background-color: #3fa3eb;
+    color: rgba(0, 0, 0, 0.538);
+    font-family: MyFont;
+  }
+}
